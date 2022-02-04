@@ -156,3 +156,22 @@ picnicFood.setImage(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `)
+let picnicfoodList = [
+sprites.food.smallHam,
+sprites.food.smallStrawberry,
+sprites.food.smallBurger,
+sprites.food.smallDrumstick,
+sprites.food.smallTaco
+]
+let text_list = [
+"ham",
+"strawberry",
+"burger",
+"drumstick",
+"taco"
+]
+for (let index = 0; index <= 4; index++) {
+    let list: Image[] = []
+    picnicFood.setImage(list[index])
+    pause(500)
+}
