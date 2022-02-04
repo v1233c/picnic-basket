@@ -1,3 +1,19 @@
+function evaluateGuess (text: string) {
+    match = 0
+    info.setScore(0)
+    for (let index = 0; index <= 4; index++) {
+        if (guess == text_list) {
+            music.baDing.play()
+            info.changeScoreBy(1)
+        } else {
+            music.wawawawaa.play()
+            info.changeScoreBy(-1)
+        }
+    }
+}
+let match = 0
+let guess: string[] = []
+let text_list: string[] = []
 scene.setBackgroundImage(img`
     cdddddccccccccccccccccccccccccccccccdddddccccccccccccccccccccccccccccccccccccccccccccccdddddccccccdddddccccccccccccccccccccccccccccccccccccccccccdddddcccccccccc
     cdddddccccccccccccccccccccccccccccccdddddccccccccccccccccccccccccccccccccccccccccccccccdddddccccccdddddccccccccccccccccccccccccccccccccccccccccccdddddcccccccccc
@@ -163,7 +179,7 @@ sprites.food.smallBurger,
 sprites.food.smallDrumstick,
 sprites.food.smallTaco
 ]
-let text_list = [
+text_list = [
 "ham",
 "strawberry",
 "burger",
@@ -171,7 +187,9 @@ let text_list = [
 "taco"
 ]
 for (let index = 0; index <= 4; index++) {
-    let list: Image[] = []
-    picnicFood.setImage(list[index])
+    picnicFood.setImage(picnicfoodList[index])
     pause(500)
 }
+picnicFood.destroy()
+guess = game.askForString("What food was in Yogi's basket?")
+evaluateGuess(guess)
